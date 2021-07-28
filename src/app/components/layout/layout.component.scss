@@ -1,0 +1,95 @@
+.app-layout {
+  //display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .btn-logout {
+    float: right;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &.login-inactive {
+    .app-main {
+      height: 100vh;
+      .app-router {
+        width: 100vw;
+      }
+    }
+  }
+
+  .app-header {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+
+    .left-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .right-wrap {
+      display: flex;
+      align-items: center;
+
+      .notification-ic {
+        margin-left: 15px;
+      }
+
+      .profile-info {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+
+        .profile-email {
+          font-size: 16px;
+          margin-right: 15px;
+        }
+
+        .profile-avatar {
+          width: 45px;
+          height: 45px;
+          border-radius: 100px;
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          .profile-img {
+            width: 100%;
+            border-radius: 100px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  .app-main {
+    //width: calc(100vw - 65px);
+    width: 100vw;
+    height: calc(100vh - 65px);
+    background: #f3f6f9;
+    display: flex;
+
+    .app-sidebar {
+      width: 65px;
+      height: 100%;
+      //height: 100vh;
+    }
+
+    .app-router {
+      //width: 100%;
+      //height: calc(100vh - 65px);
+      //overflow: auto;
+      width: calc(100vw - 65px);
+    }
+  }
+}
+
+[color='primary'] {
+  background: #3f51b5;
+  color: #fff;
+}

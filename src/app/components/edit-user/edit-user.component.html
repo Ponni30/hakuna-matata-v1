@@ -1,0 +1,20 @@
+<form [formGroup]="editForm" action="submit" #form (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" name="name" type="text" formControlName="name" required />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>DOB</mat-label>
+    <input matInput [matDatepicker]="picker" [max]="today" (focus)="picker.open()" placeholder="DOB" formControlName="dob" required/>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br />
+  <div class="buttons-wrapper">
+    <button type="button" mat-raised-button color="warn" (click)="cancelEditForm()">Cancel</button>
+    <button type="submit" mat-raised-button color="primary" class="login-button">
+      {{ data?.isEdit ? 'Update' : 'Add' }}
+    </button>
+  </div>
+</form>

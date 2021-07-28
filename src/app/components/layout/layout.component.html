@@ -1,0 +1,56 @@
+<div class="app-layout" [class.example-is-mobile]="mobileQuery.matches" [ngClass]="isLoggedIn ? '' : 'login-inactive'">
+  <mat-toolbar color="primary" class="app-header" *ngIf="isLoggedIn">
+    <div class="left-wrap">
+      <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <h1 class="example-app-name">{{'title' | translate}}</h1>
+    </div>
+    <div class="right-wrap">
+      
+      <button
+      mat-raised-button
+      color="accent"
+      class="btn-user-dwld"
+      mat-icon-button
+      matTooltip="{{'tooltip.notification' | translate}}"
+      [matMenuTriggerFor]="notifyAll"
+      matBadge="{{ toaster.notifications.length }}"
+      matBadgePosition="after"
+      matBadgeColor="primary"
+    >
+      <mat-icon>notifications_none</mat-icon>
+    </button>
+
+    <!-- Notification menu -->
+    <mat-menu #notifyAll="matMenu" xPosition="before">
+      <div *ngFor="let element of toaster.notifications" class="notify-content">{{ element }}</div>
+      <div *ngIf="toaster.notifications.length == 0" class="no-data">{{ toaster.NO_DATA }}</div>
+    </mat-menu>
+
+      <div class="profile-info">
+        <span class="profile-email">{{userName?.email}}</span>
+        <span class="profile-avatar">
+          <img src="assets/images/profile.jpg" class="profile-img" />
+        </span>
+      </div>
+
+       <button  mat-raised-button color="warn" class="btn-logout" matTooltip="{{'tooltip.logout' | translate}}" (click)="logoutHandler()"> <mat-icon aria-hidden="false" aria-label="logout">logout</mat-icon></button>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container class="app-main">
+    <mat-sidenav
+      color="primary"
+      class="app-sidebar"
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <app-side-nav *ngIf="isLoggedIn"></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content class="app-router">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

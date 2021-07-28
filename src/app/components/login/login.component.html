@@ -1,0 +1,29 @@
+<div class="login-page">
+  <div class="login-form">
+    <h1>{{ 'login.welcome' | translate }}</h1>
+    <p>{{ 'login.log-back' | translate }}</p>
+
+    <form [formGroup]="loginForm" action="submit" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'login.email' | translate }}</mat-label>
+        <input matInput placeholder="Email" name="email" type="email" formControlName="email" required />
+        <mat-hint *ngIf="f.email.invalid && f.email.touched && f.email.errors?.required"
+          >*{{ 'login.email-req' | translate }}</mat-hint
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'login.password' | translate }}</mat-label>
+        <input matInput placeholder="Password" name="password" type="password" formControlName="password" required />
+        <mat-hint *ngIf="f.password.errors?.required">* {{ 'login.password-req' | translate }}</mat-hint>
+        <mat-hint *ngIf="!f.password.errors?.required && f.password.invalid"
+          >* {{ 'login.password-invalid' | translate }}</mat-hint
+        >
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary" class="login-button">
+        {{ 'login.title' | translate }}
+      </button>
+    </form>
+
+    <!-- <p class="singup">Don't have an account ? <a routerLink="/register">Sign up</a></p> -->
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+    "user": {
+        "title": "List of users",
+        "search": "Search Users",
+        "add": "Add",
+        "language": "Select Language",
+        "user-title": "User",
+        "dob": "Birthdate",
+        "name": "User Name",
+        "action": "Action"
+    },
+    "login": {
+        "title":"Login",
+        "welcome": "Welcome Back!",
+        "log-back": "Log back into your account",
+        "email": "Email",
+        "email-req": "Email is required",
+        "password": "Password",
+        "password-req": "Password is required",
+        "password-invalid": "8 character minimum, 1 uppercase, one lowercase, one special character"
+    },
+    "common": {
+        "NO_DATA": "No Data Found"
+    },
+    "tooltip": {
+        "notification": "Notifications",
+        "logout": "Logout",
+        "download-pdf": "Download PDF",
+        "add-user": "Add User"
+    },
+    "title": "Hakuna Matata"
+}
